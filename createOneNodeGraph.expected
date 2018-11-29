@@ -1,0 +1,10 @@
+# Test creating a graph with one node
+
+# Create a graph
+created graph graph1
+
+# Add a node
+added node node1 to graph1
+
+# Print the nodes in the graph
+graph1 contains: node1

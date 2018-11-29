@@ -1,0 +1,152 @@
+CSE 331 Homework 5.  Answers to Written questions.
+Edit this file to supply your answers.
+
+Name:  <replace this with your name>
+
+Problem 1. (Written exercises)
+
+(a)
+IntQueue1:
+	Abstraction function is:
+		The front element of the queue = entries.get(0)
+		The second element of the queue = entries.get(1)
+		...
+		The last element of the queue = entries.get(entries.size() - 1)
+
+	Rep invariant is:
+		entries != null && forall i such that 0 <= i < entries.size(), entries.get(i) != null
+
+IntQueue2:
+	Abstraction function is:
+		if front + size <= |entries|
+			The front element of the queue = entries[front]
+			The second element of the queue = entries[front + 1]
+			...
+			The last element of the queue = entries[front + size - 1]
+		if front + size > |entries|
+			The front element of the queue = entries[front]
+			...
+			Some element of the queue = entries[entries.length - 1] (or last element of entries)
+			Element after "some element" of the queue = entries[0] (or first element of entries)
+			...
+			The last element of the queue = entries[front + size - entries.length - 1]
+
+	Rep invariant is:
+		entries != null && forall i such that (0 <= i < entries.length), entries[i] != null
+		size >= 0
+		front >= 0 && front < entries.length
+	
+(b)
+a=d=g, b=h, c=f, e
+
+(c)
+1. There is no potential rep exposure because the method only deals with primitive int types.
+2. There is potential rep exposure because the method returns an array of Strings, and arrays are mutable.
+3. There is potential rep exposure because Date objects are mutable.
+4. There is no potential rep exposure because String objects are immutable.
+5. There is potential rep exposure if the iterator is made from the object itself. However, if the iterator is made from a copy of the object at hand, then there is no rep exposure.
+6. There is potential rep exposure if there is no copy made of the List, since List objects are mutable. If a List copy is made at the beginning of the method, then there is no rep exposure. 
+
+Problem 2.  (Graph interface/operations)
+I included three classes called Graph, Node, and Edge because I felt that this implementation would be the most straightforward and intuitive for both me as the implementor and for clients. Alternatively, I could have implemented the whole program in one class but would have then had significantly more complex fields and methods. Having a class for the graph, another class for node objects, and another for edge objects made the whole program, to me, much easier to visualize and made method implementations much simpler, making it less likely for me to introduce bugs.
+
+GRAPH METHODS:
+	add(Node) - Included to allow clients to add nodes to the graph to build the graph.
+	add(Set<Node>) - Included to allow clients to add nodes to the graph to build the graph 
+					 more quickly if many nodes are to be added. Calling this method on a set 
+					 of nodes is much faster than repeatedly calling add(Node).
+	remove(Node) - Included to allow clients to remove nodes from the graph if they are no 
+				   longer wanted or needed.
+	contains(Node) - Included to allow clients to check if a node is in the graph so that they 
+					 don't feel the need to add a node to the graph just to "make sure" it's 
+					 there (duplicates are already taken care of from my use of a set, so I 
+					 am not worried about that as an implementor).
+	nodeCount() - Included to allow clients to get an idea of how expansive the graph is. This
+				  is information that the client may like to know.
+	iterator() - Included to provide clients with a simple way to read through the nodes of
+				 a graph for their information.
+	isEmpty() - Included to provide clients with a quick and simple way to check whether a 
+				graph has any nodes.
+	clear() - Included to provide clients with a quick and simple way to rid the graph of all
+			  nodes.
+	addEdge(Node, Node, String) - Included to provide clients with a quick and simple way to
+								  add an Edge between two existing Nodes.
+	getNode(String) - Included to allow clients to access a Node by name.
+
+NODE METHODS:
+	getName() - Included to allow clients to obtain the name of the node object.
+	getEdges() - Included to allow clients to see the set of Edges (without the ability to 
+				 alter the object, as it returns a copy of the set).
+	copySet() - Included as a helper method to getEdges() (and maybe more later on) to create
+				a copy of a set to disallow clients from editing a set behind my back.				
+	add(Edge) - Included to allow clients to add edges to a node to make more connections 
+				between nodes.
+	add(Set<Edge>) - Included to allow clients to add multiple edges to a node object at once.
+	remove(Edge) - Included to allow clients to remove edges from a node if they are no longer 
+				   wanted or needed.
+	edgeCount() - Included to allow clients to see how many edges a node has. This is information
+				  that a client may like to know.
+	contains(Edge) - Included to allow clients to check if an edge is in the graph so that they
+					 don't need to try to add a potentially-duplicate edge to the object.
+	toString() - Included to allow clients to quickly see (if they choose to print the returned 
+				 String) the state of a node.
+	iterator() - Included to provide clients with a simple way to read through the edges of a
+				 graph for their information.
+	hasEdges() - Included to provide clients with a quick and simple way to check whether a 
+				 node has any children.
+	getChildren() - Included to allow clients to see all one-Edge-away connections to a node.
+	clear() - Included to allow clients to remove all Edge objects (connections to other 
+			  Nodes) from a Node at once.
+	equals(Object) - Although two nodes, according to the spec, will never be the same, 
+					 I included this method to be used during traversal of edges to avoid 
+					 going in infinite circles.
+	hashCode() - Overridden to be paired with the equals method for object equality.
+	compareTo(Node) - Included to help with the ordering of nodes.
+	getEdge(String) - Included to allow clients to access an Edge by label.
+
+EDGE METHODS:
+	getLabel() - Included to allow clients to see the name of the Edge object.
+	getDestination() - Included to allow clients to see where the Edge connects to.
+	toString() - Included to allow clients to quickly see (if they choose to print the
+				 returned String) the state of the edge.
+	equals(Object) - Included to allow the Set<Edge> field in the Node class to be able 
+					 to defend against duplicates.
+	hashCode() - Overridden to be paired with the equals method in Edge for object equality.
+	compareTo(Edge) - Included to help with the ordering of edges.
+
+Problem 3.  (Testing strategy)
+In my testing, for all methods involving operations I made tests for 0, 1, 2, and many objects.
+While having tests for 2 and many objects may seem redundant in a sense, I included both 
+because of the extra safeguard, because it wasn't expensive, and because the "many" test is
+flexible - I (or whoever uses the test) can set the size of "many" to any number I would like to
+as a test constant.
+
+After writing the initial set of tests and working with the three classes more, I added more to
+my tests, including tests for an expected thrown exception and for accessor methods. Initially,
+I did not feel the need to test my accessor methods, but I figured that the tests would be very
+cheap to run and would clarify the correctness of my code, especially once I implement generics
+in the future.
+
+Also as a strategy, I feel that I utilized both clear-box and black-box testing, creating tests
+based off of code coverage (or testing as many lines of code as possible) and specifications,
+namely that of @requires and @effects.
+
+Problem 4.  (Representation)
+I initially decided to implement three separate classes of Graph, Node, and Edge because of the
+perceived intuition of such an implementation. Having a Graph object that stores Node objects,
+each of which stores its own Edge objects seemed very intuitive and easy to visualize, which I
+felt would make it easier for me to code and, more importantly, easier for the client to
+visualize and use for themselves. Additionally, though, I realized that this implementation
+would be relatively cheap to run, as all it does is add objects to respective sets and
+otherwise use methods similar to those native to the Java's Set class.  
+
+The advantage of using a collection of edges is similar to the stated advantage of my
+implementation, but magnified: this implementation would be very cheap in the construction
+of the graph, as adding anything to the collection of edges would run in O(1) time.
+
+The advantage of using an adjacency list is, similarly, that adding edges would run in O(1) 
+time. On top of that, adding new nodes would run in O(1) time, meaning additions of nodes
+as well as edges would be cheap.
+
+The advantage of using an adjacency matrix is a relatively cheap runtime for the same operations, 
+but also quicker runtime for remove operations and contains.

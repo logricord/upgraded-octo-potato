@@ -1,0 +1,12 @@
+Testsuite: hw5.test.SpecificationTests
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.062 sec
+
+Testcase: testAssertEnabled took 0 sec
+Testcase: checkAgainstExpectedOutput[0] took 0.013 sec
+Testcase: checkAgainstExpectedOutput[1] took 0.003 sec
+Testcase: checkAgainstExpectedOutput[2] took 0.005 sec
+Testcase: checkAgainstExpectedOutput[3] took 0.004 sec
+Testcase: checkAgainstExpectedOutput[4] took 0.003 sec
+Testcase: checkAgainstExpectedOutput[5] took 0.004 sec
+Testcase: checkAgainstExpectedOutput[6] took 0.004 sec
+Testcase: checkAgainstExpectedOutput[7] took 0.003 sec

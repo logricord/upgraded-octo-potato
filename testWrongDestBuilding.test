@@ -1,0 +1,7 @@
+# Verify program correctly outputs message for non-existent destination building.
+r
+PAB
+CUP
+
+# Terminate program
+q

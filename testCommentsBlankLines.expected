@@ -1,0 +1,12 @@
+Menu:
+	r to find a route
+	b to see a list of all buildings
+	q to quit
+
+Enter an option ('m' to see the menu): # Verify that the program repeats comments and blank lines correctly.
+# West Philadelphia, born and raised
+# On the playground is where I spent most of my days
+
+# Chillin' out, maxin', relaxin' all cool
+
+# Terminate the program

@@ -1,0 +1,7 @@
+# Verify program correctly outputs message for non-existent starting and destination buildings.
+r
+LOR
+TDS
+
+# Terminate program
+q

@@ -1,0 +1,12 @@
+Testsuite: hw8.test.SpecificationTests
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.731 sec
+
+Testcase: checkAgainstExpectedOutput[0] took 0.148 sec
+Testcase: checkAgainstExpectedOutput[1] took 0.054 sec
+Testcase: checkAgainstExpectedOutput[2] took 0.167 sec
+Testcase: checkAgainstExpectedOutput[3] took 0.046 sec
+Testcase: checkAgainstExpectedOutput[4] took 0.042 sec
+Testcase: checkAgainstExpectedOutput[5] took 0.046 sec
+Testcase: checkAgainstExpectedOutput[6] took 0.093 sec
+Testcase: checkAgainstExpectedOutput[7] took 0.069 sec
+Testcase: checkAgainstExpectedOutput[8] took 0.036 sec

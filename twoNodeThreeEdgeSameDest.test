@@ -1,0 +1,17 @@
+# Test graph with two nodes and three edges with same destination
+
+# Create a graph
+CreateGraph graph1
+
+# Add a pair of nodes
+AddNode graph1 node1
+AddNode graph1 node2
+
+# Add three edges
+AddEdge graph1 node1 node2 edge1
+AddEdge graph1 node1 node2 edge2
+AddEdge graph1 node1 node2 edge3
+
+# Print the nodes in the graph and the outgoing edges from node1
+ListNodes graph1
+ListChildren graph1 node1
