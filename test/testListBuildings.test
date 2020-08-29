@@ -1,0 +1,5 @@
+# Verify that the program outputs list of all buildings in the correct order.
+b
+
+# Terminate program
+q

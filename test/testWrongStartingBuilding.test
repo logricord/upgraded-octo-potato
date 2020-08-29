@@ -1,0 +1,7 @@
+# Verify program correctly outputs message for non-existent starting building.
+r
+SEA
+MUS
+
+# Terminate program
+q

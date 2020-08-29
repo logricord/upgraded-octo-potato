@@ -1,0 +1,11 @@
+Menu:
+	r to find a route
+	b to see a list of all buildings
+	q to quit
+
+Enter an option ('m' to see the menu): # Verify program correctly outputs message for non-existent starting and destination buildings.
+Abbreviated name of starting building: Abbreviated name of ending building: Unknown building: LOR
+Unknown building: TDS
+
+Enter an option ('m' to see the menu):
+# Terminate program

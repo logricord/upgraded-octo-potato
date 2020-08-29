@@ -1,0 +1,15 @@
+# Test graph with one node and two edges
+
+# Create a graph
+CreateGraph graph1
+
+# Add a node
+AddNode graph1 node1
+
+# Add two edges
+AddEdge graph1 node1 node1 edge1
+AddEdge graph1 node1 node1 edge2
+
+# Print the nodes in the graph and the outgoing edges from node1
+ListNodes graph1
+ListChildren graph1 node1

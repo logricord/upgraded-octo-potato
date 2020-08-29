@@ -1,0 +1,9 @@
+# Verify that program prints correct output for unknown commands
+t
+soup
+pepperoni pizza with olives
+COFFEE IS NOICE
+dRinKwaTeR
+
+# Terminate program
+q
